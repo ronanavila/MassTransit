@@ -30,6 +30,7 @@ builder.Services.AddMassTransit(x =>
             h.Username("guest");
             h.Password("guest");
         });
+        config.ConfigureEndpoints(context);
     });
 });
 
@@ -41,6 +42,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseRouting();
 
 app.UseEndpoints(endpoints =>
 {
